@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="icon" href="./img/logo.png" type="image/icon type">
+<!--Bootstrap CDN-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<!--font awesome-->
+<!--owl coursel cdn-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"  />
+<!--custom font-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="body">
+        <!--header start-->
+        <div class="row header m-1 p-2 justify-content-center text-center" id="header">
+          <label for="check">
+              <i class="fas fa-bars" onclick="hide('no')" id="btn"></i>
+            </label>
+            <header ><img src="./img/logo.png" width="100%" height="100px" alt=""></header>
+          </div>
+        <!--header end-->
+        <!--sidebar start-->
+      <div id="sidebar" class="sidebar">
+          <label for="check">
+              <i class="fas fa-times" onclick="hide('yes')" id="cancel"></i>
+            </label>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home Page</a></li>
+      <li><a href="deposit.html"><i class="fas fa-coins"></i> Services</a></li>
+      <li><a href="promotions.html"><i class="fas fa-coins"></i> deposit</a></li>
+      <li><a href="withdraw.html"><i class="fas fa-coins"></i> Withdraw</a></li>
+      <li><a href="registration.html"><i class="fas fa-user-plus"></i> Survey</a></li>
+      <li><a href="references.html"><i class="fas fa-book"></i> References</a></l>
+  </ul>
+  </div>
+  <!--sidebar end-->
+
+  <section id="section">
+  <!--content start-->
+  <div class="row w-100 ">
+    <div class="container">
+        <div class="title">How can we serve you better?</div>
+        <div class="content">
+          <!--registration feedack-->
+          <div id="r_messge"></div>
+          <!--registration feedback end-->
+          <form onsubmit="return false" id="signup_form">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">First Name</span>
+                <input type="text" name="fname" placeholder="Enter your first name" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text" name="lname" placeholder="Enter your last name" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Email</span>
+                <input type="text" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Age</span>
+                <input type="number" name="age" placeholder="Enter your number" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Confirm Password</span>
+                <input type="password" name="repassword" placeholder="Confirm your password" required>
+              </div>
+              <div class="row w-100 p-3">
+                <div class="input-box">
+                  <span class="details">Comment:</span>
+              <select name="account" id="">
+                <option value="Complaint">Complaint</option>
+                <option value="Complement">Complement</option>
+                  <input type="Comment" name="Comment" placeholder="Input your Comment" required>
+                  <div class="button">
+                    <input type="submit" value="Submit">
+                  </div>
+                </option>
+              </select>
+                </div>
+              </div>
+            </div>
+            <h3 style="text-align: center;color:blue;font-family:cursive;text-align;center">Customer Care Desk</h3>
+            <p style="text-align: center;color:green;font-family:cursive;text-align;center"> Customer service will be dispatched to look at your issue and respond accordingly</p>
+
+
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  <!--content end-->
+
+  <!--footer start-->
+  <div class="row w-100 justify-content-center footer bg-dark text-center ">
+    <p ><i class="far fa-copyright"></i> Abu Dhabi Islamic Bank</p>
+</div>
+  <!--footer end-->
+   <!--login modal start-->
+      <!--Login popover-->
+<!-- Modal -->
+<div class="modal fade   justify-content-center" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content justify-content-center" style="text-align: center;">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body justify-content-center">
+        <div class="panel-footer" id="e_msg"></div>
+        <form onsubmit="return false" id="login_form" >
+            <input id="details"  name="email" type="email" placeholder="username" style="width: 100%;">
+             <input id="details" type="password" name="password" placeholder="password" style="width: 100%;margin-top: 25px;">
+             <input type="submit" class="btn btn-success mt-3" style="float:right;" value="Sign in">
+<div class="row w-100">
+<a href="#" class="text-center w-100" style="color:blue; list-style:none;">Forgotten Password?</a><br>
+<a href="registration.html" class="text-center w-100" style="color:blue; list-style:none;">Don't have account? Register.</a>
+</div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!--login modal end-->
+  </section>
+    </div>
+  </body>
+</html>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>

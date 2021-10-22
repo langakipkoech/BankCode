@@ -1,0 +1,103 @@
+<?php
+include("./includes/session.php");
+?>
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+<?php
+include("./includes/style.php");
+?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="icon" href="./img/logo.png" type="image/icon type">
+<!--Bootstrap CDN-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<!--font awesome-->
+<!--owl coursel cdn-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"  />
+<!--custom font-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="body">
+    <?php
+include("navbar.php");
+$check=mysqli_num_rows(mysqli_query($conn,"SELECT c_id FROM action where u_id=$id and action='deposit'"));
+if($check>0){
+    $row=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM action where action='deposit' and u_id=$id"));
+}
+?>
+
+  <section id="section">
+  <!--content start-->
+  <div class="row w-100 ">
+    <div class="container">
+        <div class="title">Deposit Cash</div>
+        <div class="content">
+          <!--registration feedack-->
+          <div id="feedback_messge"></div>
+          <!--registration feedback end-->
+          <form onsubmit="return false" id="deposit_form">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Amount</span>
+                <input type="text" name="amount" <?php if($check>0){
+                    echo"value='".$row['amount']."'";}?> placeholder="Enter amount in €" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Deposit Type</span>
+                <select class="details" name="depo_type" id="">
+                  <option value="individual">Individual A/c</option>
+                  <option value="business">Business A/c</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button">
+              <input type="submit" value="Deposit now">
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  <!--content end-->
+
+  <!--footer start-->
+  <div class="row w-100 justify-content-center footer bg-dark text-center ">
+    <p ><i class="far fa-copyright"></i> Abu Dhabi Islamic Bank</p>
+</div>
+  <!--footer end-->
+  <!--feedback modal start-->
+<!-- Modal -->
+<div class="modal fade   justify-content-center" id="dfeedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content justify-content-center" style="text-align: center;">
+        <div class="modal-header justify-content-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body justify-content-center">
+          <div class="panel-footer alert-warning dfeedback" ></div>
+          <div class="panel-footer alert-success dsuccess" ></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--feedback modal end-->
+  </section>
+    </div>
+  </body>
+</html>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
